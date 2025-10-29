@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Товары и услуги</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #eef2f5;
+      padding: 20px;
+    }
+    input, button {
+        margin: 5px;
+        padding: 8px;
+        font-size: 16px;
+    }
+    .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+        background: #fff;
+        border-radius: 6px;
+
+    }
+    .product img {
+        max-width: 100px;
+        display: block;
+        margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  
+  <h2>Добавить товар</h2>
+  <input type="text" id="name" placeholder="Название">
+  <input type="number" id="price" placeholder="Цена">
+  <input type="file" id="image">
+  <button onclick="addProduct()">Добавить</button>
+
+  <h2>Фильтр по цене</h2>
+  <input type="number" id="minPrice" placeholder="Минимальная цена">
+  <button onclick="applyFilter()">Применить фильтр</button>
+
+  <h2>Список товаров</h2>
+  <div id="productList"></div>
+
+  <script>
+   let products =[];
+   
+ 
+   
+   // Загрузка из localStorage при старте
+   window.onload = function() {
+    const saved = localStorage.getItem('products');
+    if (saved) {
+      products = JSON.parse(saved);
+      renderProducts();
+    }
+  };
+    
+
+   function saveToStorage() {
+    localStorage.setItem('products', JSON.stringify(products));
+   }
+
+   function addProduct() {
+    const name = document.getElementById('name').value;
+    const price = document.getElementById('price').value;
+    const imageFile = document.getElementById('image').files[0];
+
+    if (!name || !price || !imageFile) {
+      alert("Заполните все поля");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      products.push({ name, price, image: e.target.result });
+      saveToStorage();
+      renderProducts();
+    };
+    reader.readAsDataURL(imageFile);
+   }
+
+   function renderProducts(filtered = products) {
+    const list = document.getElementById('productList');
+    list.innerHTML = "";
+    filtered.forEach((p, index) => {
+      list.innerHTML += `
+        <div class="product">
+          <img src="${p.image}" alt="Фото товара">
+          <strong>${p.name}</strong><br>
+          Цена: ${p.price}Т<br>
+          <button onclick="editProduct(${index})">Редактировать</button>
+          <button onclick="changeImage(${index})">Изменить фото</button>
+          <button onclick="removeImage(${index})">Удалить фото</button>
+          <button onclick="deleteProduct(${index})">Удалить</button>
+
+        </div>
+      `;
+    });
+   }
+
+   function deleteProduct(index) {
+    products.splice(index,1);
+    saveToStorage();
+    renderProducts();
+   }
+
+   function editProduct(index) {
+    const p = products[index];
+    const newName = prompt("Новое название:", p.name);
+    const newPrice = prompt("Новая цена:", p.price);
+    if (newName !== null && newPrice !== null) {
+      products[index].name = newName;
+      products[index].price = newPrice;
+      saveToStorage();
+      renderProducts();
+    }
+   }
+
+   
+
+
+
+
+
+function changeImage(index) {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.onchange = function() {
+    const file = input.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        products[index].image = e.target.result;
+        saveToStorage();
+        renderProducts();
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  input.click();
+}
+
+  
+function removeImage(index) {
+  products[index].image = "";
+  saveToStorage();
+  renderProducts();
+}
+
+function applyFilter() {
+  const min = document.getElementById('minPrice').value;
+  const filtered = products.filter(p=> parseFloat(p.price)>= parseFloat(min));
+  renderProducts(filtered);
+}
+  </script>
+</body>
+</html>
+
+
+
+  
+  
+  
