@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+ 
+ <title>Локальные разработчики</title>
+ <style>
+  body {
+   font-family: sans-serif;
+   padding: 20px;
+   max-width: 900px;
+   margin: auto;
+  }
+  h2 {
+   margin-top: 40px;
+  }
+  .gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+   }
+   .gallery img {
+     width: 200px;
+     height: auto;
+     border-radius: 5px;
+    }
+    form input, form textarea {
+     width: 100%;
+     padding: 10px;
+     margin-bottom: 10px;
+     font-size: 16px;
+    }
+    form button {
+     padding: 10px 20px;
+     font-size: 16px;
+     background-color: #0077cc;
+     color: white;
+     border: none;
+     cursor: pointer;
+    }
+    form button:hover {
+     background-color: #005fa3;
+    }
+    #map {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+    </style>
+
+   <style>
+      .intro-text  {
+        color: #cc2900ed;
+    }
+  </style> 
+    
+   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+  </head>
+  <body>
+   <h1>Локальные разработчики</h1>
+   <h2>Ваше местоположение</h2>
+   <div id="map"></div>
+   <script>
+    
+     ymaps.ready(() => {
+      navigator.geolocation.getCurrentPosition(
+       pos => {
+        const lat = pos.coords.latitude;
+        const lon = pos.coords.longitude;
+        initMap(lat, lon);
+       },
+       err => {
+        alert("Ошибка определения местоположения:"+err.message);
+       }
+      );
+    });
+
+     function initMap(lat, lon) {
+       const map = new ymaps.Map("map", {
+         center: [lat, lon],
+         zoom: 3
+
+       });
+       const placemark = new ymaps.Placemark([lat, lon], {
+         balloonContent: "Вы здесь!"
+
+       });
+       map.geoObjects.add(placemark);
+     }
+     </script>
+    
+   <h2>Загрузите свое фото</h2>
+    <input type="file" id="photoUpload" accept="image/*">
+    <div class="gallery" id="userGallery"></div>
+
+    <script>
+     document.getElementById("photoUpload").addEventListener("change",function(event) {
+      const files = event.target.files;
+      for (let file of files) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+         const img = document.createElement("img");
+         img.src = e.target.result;
+         img.alt="Загруженное фото";
+         img.style.width = "395px";
+         img.style.borderRadius= "5px";
+         img.style.marginRight = "10px";
+         document.getElementById("userGallery").appendChild(img);
+        };
+        reader.readAsDataURL(file);
+       }
+    });
+     
+    </script> 
+    
+    
+    
+    <h2>О проекте</h2>
+    <div class="intro-text">
+    
+<p>Добро пожаловать на платформу для разработчиков, которая предоставляет уникальные возможности для объединения программистов как с разных регионов так и в вашем регионе! Мы разработали этот сайт, чтобы вы могли легко найти единомышленников и работать как в команде под руководством продакт-менеджера, так и развиваться как индивидуальные разработчики.
+
+Здесь вы можете:
+
+Объединяться в международные и локальные комьюнити — находить и вступать в проекты с участниками со всего мира, а также с коллегами, работающими рядом с вами.
+
+Работать в команде под руководством продакт-менеджера — реализовывать сложные проекты с координацией и поддержкой профессионалов.
+
+Индивидуальные разработчики могут найти команду для совместных проектов или сосредоточиться на самостоятельной разработке, получая доступ к полезным ресурсам и общениям.
+
+Находить разработчиков по месту проживания — это особенно удобно для организации встреч в офлайне, участия в хакатонах, аренды коворкингов и организации кооперации для совместных проектов или аренды помещений.
+
+Платформа разработана для того, чтобы программисты могли не только развиваться профессионально, но и строить реальные связи, делая технологическое сообщество более сплочённым и доступным.
+ </p>
+ </div>
+
+ <h2>Галерея</h2>
+ <div class="gallery">
+  <img src="https://via.placeholder.com/200x150?text=Фото+1" alt="Фото 1">
+  <img src="https://via.placeholder.com/200x150?text=Фото+2" alt="Фото 2">
+  <img src="https://via.placeholder.com/200x150?text=Фото+3" alt="Фото 3">
+ </div>
+
+ <h2>Контакты</h2>
+ <p>Email: <a href="mailto:contact@devlocal.kz">contact@devlocal.kz</a></p>
+ <p>Telegram: <a href="https://t.me/yourusername">@yourusername</a></p>
+
+ <h2>Оставить отзыв</h2>
+ <form id="feedbackForm">
+  <input type="text" placeholder="Ваше имя" required>
+  <textarea placeholder="Ваш отзыв" rows="4" required></textarea>
+  <button type="submit">Отправить</button>
+ </form>
+
+ <script>
+  document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+   e.preventDefault();
+   alert("Спасибо за ваш отзыв!");
+  });
+ </script>
+ </body>
+ </html>
