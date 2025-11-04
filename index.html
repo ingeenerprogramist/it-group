@@ -12,8 +12,19 @@
    padding: 20px;
    max-width: 900px;
    margin: auto;
+.top-sectin {
+  background-color: #ccffcc; /* светло-зеленый */
+  padding: 20px;
+} 
+.bottom-section {  
    background-color: #fffaaa; /*желтый фон */
-  }
+   padding: 20px;
+}
+.divider {
+  height: 4px;
+  background-color: red;
+  margin: 0;
+}  
   h2 {
    margin-top: 40px;
   }
@@ -60,6 +71,7 @@
    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   </head>
   <body>
+  <div class="top-section">
    <h1>Локальные разработчики</h1>
    <h2>Ваше местоположение</h2>
    <div id="map"></div>
@@ -95,7 +107,7 @@
    <h2>Загрузите свое фото</h2>
     <input type="file" id="photoUpload" accept="image/*">
     <div class="gallery" id="userGallery"></div>
-
+   </div>
     <script>
      document.getElementById("photoUpload").addEventListener("change",function(event) {
       const files = event.target.files;
@@ -117,7 +129,8 @@
     </script> 
     
     
-    
+<div class="divider"></div>
+<div class="bottom-section">   
     <h2>О проекте</h2>
     <div class="intro-text">
     
@@ -157,6 +170,7 @@
   <input type="text" placeholder="Ваше имя" required>
   <textarea placeholder="Ваш отзыв" rows="4" required></textarea>
   <button type="submit">Отправить</button>
+ </div>
  </form>
 
  <script>
