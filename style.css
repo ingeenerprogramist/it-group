@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  max-width: 900;
+  margin: auto;
+}
+.top-section {
+  background-color: #ccffcc;
+  padding: 20px;
+}
+.bottom-section {
+  background-color: #fffaaa;
+  padding: 20px;
+}
+.divider {
+  height: 4px;
+  background-color: red;
+  margin: 0;
+}
