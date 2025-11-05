@@ -4,6 +4,9 @@ body {
   max-width: 900;
   margin: auto;
 }
+.intro-text {
+  color: #0052ccee;
+}
 .top-section {
   background-color: #ccffcc;
   padding: 20px;
