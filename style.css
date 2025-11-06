@@ -4,15 +4,6 @@ body {
   max-width: 900px;
   margin: auto;
  }
-serik@intelcom:~/vscode/clean-site$ ```css
-/* Весь твой CSS-код */
-```
-Команда «css» не найдена, но есть 16 похожих.
-bash: /bin: Это каталог
-serik@intelcom:~/vscode/clean-site$   font-family: sans-serif;
-  padding: 20px;
-  max-width: 900;
-  margin: auto;
 
 .intro-text {
   color: #0052cc;
