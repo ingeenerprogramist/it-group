@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <title>Регистрация</title>
+   <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+   <h1>Регистрация пользователя</h1>
+   <form id="registerForm">
+    <input type="text" placeholder="Имя пользователя" required>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Пароль" required>
+    <button type="submit">Зарегистрироваться</button>
+   </form>
+
+   <script>
+    document.getElementById("registerForm").addEventListener("submit",function(e) {
+     e.preventDefault();
+     alert("Регистрация прошла успешно!");
+     //Здесь можно добавить сохранения данных в localStorage или отправку на сервер
+     });  
+   </script>
+  </body>
+  </html>
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+  
+
+   
