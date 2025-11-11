@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title> Личный кабинет</title>
+  <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+  <h1>Добро пожаловать, <span id="username"></span>!</h1>
+  <p>Email: <span id="email"></span></p>
+  <button onclick="logout()">Выйти</button>
+
+  <script>
+  document.getElementById("username").textContent = localStorage.getItem("username");
+  document.getElementById("email").textContent = localStorage.getItem("email");
+
+  function logout() {
+   alert("Вы вышли из аккаунта");
+   window.location.href = "login.html";
+  }
+  </script>
+ </body>
+ </html>

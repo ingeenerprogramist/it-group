@@ -17,6 +17,9 @@
    <script>
     document.getElementById("registerForm").addEventListener("submit",function(e) {
      e.preventDefault();
+     localStorage.setItem("username", e.target[0].value);
+     localStorage.setItem("email", e.target[1].value);
+     localStorage.setItem("password", e.target[2].value);
      alert("Регистрация прошла успешно!");
      //Здесь можно добавить сохранения данных в localStorage или отправку на сервер
      });  
