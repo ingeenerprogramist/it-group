@@ -27,17 +27,33 @@
      <form id="registerForm">
      <input type="text" placeholder="Имя пользователя" required>
      <input type="email" placeholder="Email" required>
-     <input type="password" placeholder="Пароль" required>
+     <input type="password" id="password" placeholder="Пароль" required>
+     <input type="password" id="confirmPassword" placeholder="Подтверждение пароля" required>   
      <button type="submit">Зарегистрироваться</button>
    </form>
 
    <script>
     document.getElementById("registerForm").addEventListener("submit",function(e) {
      e.preventDefault();
-     localStorage.setItem("username", e.target[0].value);
-     localStorage.setItem("email", e.target[1].value);
-     localStorage.setItem("password", e.target[2].value);
+     const username = e.target[0].value;
+     const email = e.target[1].value;
+     const password = e.target[2].value;
+     const confirmPassword = e.target[3].value;
+
+     if (password !== confirmPassword) {
+       document.getElementById("confirmPassword").style.border = "2px solid red";
+       alert("Пароли не совпадают! Попробуйте ещё раз.");
+       return;
+     } else {
+       document.getElementById("confirmPassword").style.border = "";
+     }
+     
+     
+     localStorage.setItem("username", username);
+     localStorage.setItem("email", email);
+     localStorage.setItem("password", password);
      alert("Регистрация прошла успешно!");
+     e.target.reset();
      //Здесь можно добавить сохранения данных в localStorage или отправку на сервер
      });  
    </script>
