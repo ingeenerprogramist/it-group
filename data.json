@@ -1,0 +1,14 @@
+const patient = {
+    id: "001",
+    name: "Фулян ибн Фулян",
+    birthDate: "2007-07-15",
+    region: "Астана",
+    diagnosis: "Инфаркт Миокарда",
+    visitDate: "03.09.2023",
+    history: ["Орви","Астма","Инфаркт Миокарда"],
+    riskGroup: true
+};
+
+localStorage.setItem("patient001", JSON.stringify(patient));
+
+

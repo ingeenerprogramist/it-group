@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run p2.py",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/p2.py",
+      "python": "/home/serik/vs_files/venv/bin/python3"
+    }
+  ]
+}
+
