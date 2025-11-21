@@ -4,7 +4,18 @@ body {
   max-width: 900px;
   margin: auto;
  }
-
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #0077cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.btn:hover {
+  background-color: #005fa3;
+}
 .intro-text {
   color: #0052cc;
 }
@@ -46,7 +57,12 @@ form button {
   border: none;
   cursor: pointer;
 }
-form button: hover {
+
+
+
+
+form button:hover {
+
   background-color: #005fa3;
 }
 #map {
