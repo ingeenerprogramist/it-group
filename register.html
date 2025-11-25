@@ -18,7 +18,11 @@
        background-color: #0077cc;
        color: white;
        border: none;
-       cursor: pointer;  
+       cursor: pointer; 
+     }
+     .gallery img {
+       margin-top: 20px;
+       border: 2px solid #ccc;
      }
     </style>
   </head>
@@ -34,7 +38,10 @@
      <input type="password" id="confirmPassword" placeholder="Подтверждение пароля" required>   
      <button type="submit">Зарегистрироваться</button>
    </form>
-
+   <!-- Галерея вынесена в html -->
+   <h2>Галерея</h2>
+   <div class="gellery">
+     <img src="images/cyfropolis.jpg" alt="Корабль-здание" width="300">
    <script>
     document.getElementById("registerForm").addEventListener("submit",function(e) {
      e.preventDefault();
@@ -57,9 +64,7 @@
      localStorage.setItem("password", password);
      alert("Регистрация прошла успешно!");
      e.target.reset();
-     <h2>Галерея</h2>
-     <div class="gallery">
-       <img src="images/cyfropolis.jpg" alt="Корабль здание" width="300">
+    
      
      //Здесь можно добавить сохранения данных в localStorage или отправку на сервер
      });  
