@@ -71,6 +71,7 @@ form button:hover {
 }
 .gallery img.full-image {
   width: 100% !important;   
-  height: auto;    /*Сохраняет пропорции*/
+  height: auto;    /*Сохранение пропорции*/
+  border-radius: 0; /*Убирание скругление*/
   
 }
