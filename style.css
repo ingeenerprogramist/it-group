@@ -70,7 +70,7 @@ form button:hover {
   background-color: #005fa3;
 }
 .gallery img.full-image {
-  width: 100%; !important;   
+  width: 100% !important;   
   height: auto;    /*Сохраняет пропорции*/
   
 }
