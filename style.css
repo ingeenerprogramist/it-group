@@ -69,3 +69,8 @@ form button:hover {
 .btn:hover {
   background-color: #005fa3;
 }
+.full-image {
+  width: 100%;     /*Растягивает картинку*/
+  height: auto;    /*Сохраняет пропорции*/
+  display: block;  /*Убирает лишние отступы*/
+}
