@@ -1,10 +1,13 @@
 body {
 
   font-family: sans-serif;
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
- }
+  margin: 0;
+  padding: 0;
+  background-image: url("images/zeroandone.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .intro-text {
   color: #0052cc;
