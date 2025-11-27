@@ -3,26 +3,24 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url("images/zeroandone.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+.top-section {
+  background-color: #ccffcc; /* зеленый */
+  padding: 20px;
+}
+.bottom-section {
+  background-color: #fffaaa; /* желтый */
+  padding: 20px;
 }
 
 .intro-text {
   color: #0052cc;
-}
-.top-section {
-  background-color: #ccffcc;
-  padding: 20px;
-}
-.bottom-section {
-  background-color: #fffaaa;
-  padding: 20px;
+
+
 }
 .divider {
   height: 4px;
-  background-color: red;
+  background-color: red; /* красная полоска */
   margin: 0;
 }
 .gallery {
@@ -72,9 +70,4 @@ form button:hover {
 .btn:hover {
   background-color: #005fa3;
 }
-.gallery img.full-image {
-  width: 100% !important;   
-  height: auto;    /*Сохранение пропорции*/
-  border-radius: 0; /*Убирание скругление*/
-  
-}
+
