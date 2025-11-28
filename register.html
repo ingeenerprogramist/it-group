@@ -13,6 +13,8 @@
        margin-bottom: 10px;
      }
 
+     
+
      form button {
        padding: 10px 20px;
        background-color: #0077cc;
@@ -27,23 +29,22 @@
     </style>
   </head>
   <body>
-    <a href="index.html" class="btn">На главную</a>
-    <a href="login.html" class="btn">Войти</a> 
-
-     <h1>Регистрация пользователя</h1>
-     <form id="registerForm">
+    <div class="top-section">
+      <h1>Регистрация пользователя</h1>
+    </div>
+    <div class="divider"></div>
+    <div class="bottom-section">
+      <a href="index.html" class="btn">На главную</a>
+      <a href="login.html" class="btn">Войти</a> 
+     
      <input type="text" placeholder="Имя пользователя" required>
      <input type="email" placeholder="Email" required>
      <input type="password" id="password" placeholder="Пароль" required>
      <input type="password" id="confirmPassword" placeholder="Подтверждение пароля" required>   
      <button type="submit">Зарегистрироваться</button>
    </form>
-   <!-- Галерея вынесена в html -->
-   <h2>Галерея</h2>
-   <div class="gallery">
-     <img src="images/zeroandone.jpeg" alt="ноль и один" class="full-image">
-   </div>
-    <script>
+    </div>
+  <script>
     document.getElementById("registerForm").addEventListener("submit",function(e) {
      e.preventDefault();
      const username = e.target[0].value;
