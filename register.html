@@ -36,14 +36,14 @@
     <div class="bottom-section">
       <a href="index.html" class="btn">На главную</a>
       <a href="login.html" class="btn">Войти</a> 
-     
+    <form id="registerForm">
      <input type="text" placeholder="Имя пользователя" required>
      <input type="email" placeholder="Email" required>
      <input type="password" id="password" placeholder="Пароль" required>
      <input type="password" id="confirmPassword" placeholder="Подтверждение пароля" required>   
      <button type="submit">Зарегистрироваться</button>
    </form>
-    </div>
+  </div>
   <script>
     document.getElementById("registerForm").addEventListener("submit",function(e) {
      e.preventDefault();
