@@ -15,24 +15,26 @@ body {
 
 .intro-text {
   color: #0052cc;
-
-
 }
+
 .divider {
   height: 4px;
   background-color: red; /* красная полоска */
   margin: 0;
 }
+
 .gallery {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
+
 .gallery img {
   width: 200px;
   height: auto;
   border-radius: 5px;
 }
+
 form input,
 form textarea {
   width: 100%;
@@ -40,6 +42,7 @@ form textarea {
   margin-bottom: 10px;
   font-size: 16px;
 }
+
 form button {
   padding: 10px 20px;
   font-size: 16px;
@@ -48,8 +51,22 @@ form button {
   border: none;
   cursor: pointer;
 }
+
 form button:hover {
   background-color: #005fa3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
 }
 #map {
   width: 100%;
@@ -70,5 +87,5 @@ form button:hover {
 .btn:hover {
   background-color: #005fa3;
 }
-.
+
 
