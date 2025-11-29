@@ -41,10 +41,51 @@
       width: 100%;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    form input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    form button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      width: 100%;
+      margin-top: 10px;
+    }
+    form button:hover {
+      background-color: #005fa3;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
+  <div class="top-section">
+    
   <h1>Входа в аккаунт</h1>
+  </div>
+  <div class="diviper"></div>
+  <div class="bottom-section">
+    <nav>
+      <a href="index.html" class="btn">На главное</a>
+      <a href="register.html" class="btn">Регистрация</a>
+    </nav>
+  
+      
   <form id="loginForm">
     <input type="email" placeholder="Email" required>
     <input type="password" placeholder="Пароль" required>
