@@ -21,7 +21,7 @@
       justify-content: center;
       align-items: center;
     }
-    .divider
+    .divider {
       height: 4px;
       background-color: red; /* красная полоска */
     }
@@ -34,7 +34,7 @@
       align-items: center;
     }
     form {
-      backgroud: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.9);
       padding: 20px;
       border-radius: 10px;
       max-width: 400px;
@@ -76,28 +76,30 @@
 <body>
   <div class="top-section">
     
-  <h1>Входа в аккаунт</h1>
+  <h1>Вход в аккаунт</h1>
   </div>
-  <div class="diviper"></div>
+  <div class="divider"></div>
   <div class="bottom-section">
     <nav>
-      <a href="index.html" class="btn">На главное</a>
+      <a href="index.html" class="btn">На главную</a>
       <a href="register.html" class="btn">Регистрация</a>
     </nav>
   
       
   <form id="loginForm">
-    <input type="email" placeholder="Email" required>
-    <input type="password" placeholder="Пароль" required>
+    <input type="email" id="loginEmail" placeholder="Email" required>
+    <input type="password" id="loginPassword" placeholder="Пароль" required>
     <button type="submit">Войти</button>
   </form>
 
   <script>
     document.getElementById("loginForm").addEventListener("submit",function(e) {
       e.preventDefault();
-      const email = e.target[0].value;
-      const password = e.target[1].value;
+      const email = document.getElementById("loginEmail").value;
+      
     
+      const password = document.getElementById("loginPassword").value;
+     
       const savedEmail = localStorage.getItem("email");
       const savedPassword = localStorage.getItem("password");
 
