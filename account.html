@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       display: flex;
-      flex-family: sans-serif;
+      font-family: sans-serif;
     }
     .top-section {
       background-color: #ccffcc; /* зеленый */
@@ -78,10 +78,11 @@
     //Получаем данные из localStorage
     const username = localStorage.getItem("username");
     const email = localStorage.getItem("email");
-    document.getElementById("username").textContent = localStorage.getItem("username");
-    document.getElementById("email").textContent = localStorage.getItem("email");
+    document.getElementById("username").textContent = username;
+    document.getElementById("email").textContent = email;
 
   function logout() {
+    localStorage.clear(); // очищаем данные
    alert("Вы вышли из аккаунта");
    window.location.href = "login.html";
   }
