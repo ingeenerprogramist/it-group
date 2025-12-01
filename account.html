@@ -4,15 +4,82 @@
   <meta charset="UTF-8">
   <title> Личный кабинет</title>
   <link rel="stylesheet" href="style.css">
- </head>
- <body>
-  <h1>Добро пожаловать, <span id="username"></span>!</h1>
-  <p>Email: <span id="email"></span></p>
-  <button onclick="logout()">Выйти</button>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-family: sans-serif;
+    }
+    .top-section {
+      background-color: #ccffcc; /* зеленый */
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .divider {
+      height: 4px;
+      background-color: red; /* красная полоска */
+    }
+    .bottom-section {
+      background-color: #fffaaa; /* желтая */
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #005fa3;
+    }
+    .account-info {
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-section">
+    <h1>Ваш аккаунт</h1>
+  </div>
+  <div class="divider"></div>
+  <div class="bottom-section">
+    <nav>
+      <a href="index.html" class="btn">На главную</a>
+      <a href="login.html" class="btn">Выйти</a>
+    </nav>
+
+    <div class="account-info">
+      <h2>Добро пожаловать!</h2>
+      <p><strong>Имя пользователя:</strong> <span id="username"></span></p>
+      <p><strong>Email:</strong><span id="email"></span></p>
+    </div>
+  </div>
+  
 
   <script>
-  document.getElementById("username").textContent = localStorage.getItem("username");
-  document.getElementById("email").textContent = localStorage.getItem("email");
+    //Получаем данные из localStorage
+    const username = localStorage.getItem("username");
+    const email = localStorage.getItem("email");
+    document.getElementById("username").textContent = localStorage.getItem("username");
+    document.getElementById("email").textContent = localStorage.getItem("email");
 
   function logout() {
    alert("Вы вышли из аккаунта");
