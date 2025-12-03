@@ -8,23 +8,20 @@
     body {
       margin: 0;
       padding: 0;
-      display: flex;
       font-family: sans-serif;
     }
     .top-section {
       background-color: #ccffcc; /* зеленый */
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 20px;
+      text-align: center;
     }
-    .divider {
+     .divider {
       height: 4px;
       background-color: red; /* красная полоска */
     }
     .bottom-section {
       background-color: #fffaaa; /* желтая */
-      flex: 2;
+      min-height: 70vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -63,7 +60,7 @@
   <div class="bottom-section">
     <nav>
       <a href="index.html" class="btn">На главную</a>
-      <a href="login.html" class="btn">Выйти</a>
+      <a href="#" class="btn" onclick="logout()">Выйти</a>
     </nav>
 
     <div class="account-info">
@@ -76,13 +73,13 @@
 
   <script>
     //Получаем данные из localStorage
-    const username = localStorage.getItem("username");
-    const email = localStorage.getItem("email");
+    const username = localStorage.getItem("username") || "Не указано";
+    const email = localStorage.getItem("email") || "Не указано";
     document.getElementById("username").textContent = username;
     document.getElementById("email").textContent = email;
 
   function logout() {
-    localStorage.clear(); // очищаем данные
+   localStorage.clear(); // очищаем данные
    alert("Вы вышли из аккаунта");
    window.location.href = "login.html";
   }
